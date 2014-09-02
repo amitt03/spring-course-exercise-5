@@ -16,7 +16,15 @@ public class BookAnalyzerSetupTest {
 
     @Configuration
     static class MyConfig {
-        // TODO use properties from mockEnvVars as part of this test's fixture
+        // use properties from mockEnvVars as part of this test's fixture
+        @Bean
+        public PropertySourcesPlaceholderConfigurer configurer() {
+            PropertySourcesPlaceholderConfigurer result = new PropertySourcesPlaceholderConfigurer();
+            MutablePropertySources propertySources = new MutablePropertySources();
+            propertySources.addLast(mockEnvVars);
+            result.setPropertySources(propertySources);
+            return result;
+        }
     }
 
     @Autowired
