@@ -17,16 +17,14 @@ Have a look at the project, it is a solution for exercise 4 with additional test
     Use *uutMembers* when you need to check a method's **side-effect**.<br/>
     Test the effect of a single method invocation in each test case.
 
-2. Look at **BookAnalyzerSetupTest** class. this is a simple stub for a Spring Mockito JUnit test.<br/>
+2. Look at **BookAnalyzerSetupTest** class. this is a simple stub for a Spring Mockito JUnit test. note how we use a PropertySourcesPlaceholderConfigurer that will help us test BookAnalyzer with some test environment variables.<br/>
   1. Execute **BookAnalyzerSetupTest** class and see that Spring did not load. Make the JUnit test run in Spring's TestContext.<br/>
   2. Execute **BookAnalyzerSetupTest** class and see that the application context fails to load. debug and fix the loading issue.<br/>
   3. Now the **BookAnalyzer** class autowiring fails, as the **BookAnalyzer** class was not scanned. Make the test context scan BookAnalyzer class.<br/>
      It's impossible to solve this one with *@ComponentScan*, use the alternative mentioned earlier.<br/>
-  4. Finally, we want to test **BookAnalyzer** class with some test environment variables. Add a *PropertySourcesPlaceholderConfigurer* that will use *mockEnvVars*.
-<br/>
+
   **NOTICE**<br/>
   i, ii and iii can be solved by adding a single line to **BookAnalyzerTest**. do not settle for less (more)!<br/>
-  iv should be solved by adding a **single** spring bean.<br/>
   **Do not** change or add anything outside **BookAnalyzerSetupTest**.<br/>
   **Do not** change the *testSpringSetup()* test case.
 
